@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const db_url = process.env.DB_URL;
 const connect = function(){
     mongoose.set("strictQuery", false);
-    mongoose.connect(db_url).then((val) => {
+    mongoose.connect(db_url, {
+        dbName: 'rest-api',
+        useNewUrlParser: true
+    }).then((val) => {
         console.log('DB Connected!');
     }).catch((err) => {
         console.log('Error Connection', err);
