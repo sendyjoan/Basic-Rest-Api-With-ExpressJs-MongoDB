@@ -25,8 +25,8 @@ router.get('/student/:id',async (req,res)=>{
 router.post('/student',async (req,res)=>{
     try{
         const student= new Student({
-            name:req.body.name
-            // age:req.body.age
+            name:req.body.name,
+            age:req.body.age
         });
         const result=await student.save();
         res.status(200).json(result);
